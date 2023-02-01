@@ -1,0 +1,47 @@
+/ * Valor de especificidad: 100 * /
+
+    #tarjeta { 
+
+    ...
+
+    } 
+
+/ * Valor de especificidad: 10 * /
+
+    .cardCourse { 
+
+    ...
+
+    } 
+
+/ * Valor de especificidad: 1 * /
+
+    sección { 
+
+    ...
+
+    } 
+
+/ * Valor de especificidad: 10 + 10 = 20 * /
+
+    .cardCourse .cardCourse-title { 
+
+    ...
+
+    } 
+
+/ * Valor de especificidad: 10 + 10 + 1 = 21 * /
+
+    .cardCourse h3.cardCourse-title { 
+
+    ...
+
+    } 
+
+/ * Valor de especificidad: 10 + 10 = 20 * /
+
+    .cardCourse: nth-of-type (2n) { 
+
+    ...
+
+    }

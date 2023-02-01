@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+<canvas width="600" height="400"></canvas>
+
+<script>
+	function dibujarRectangulo(x, y, base, altura, color) {
+		var pantalla = document.querySelector("canvas");
+		var pincel = pantalla.getContext("2d");
+        pincel.fillStyle=color; //Acá recibirá por parametro el color
+        pincel.fillRect(x,y, base, altura); //Acá recibirá por parametro la posición horizontal (X) y la vertical (Y) donde comenzará el rectángulo más la base y la altura que trandrá el mismo
+        pincel.strokeStyle="black"; //Los bordes por defecto serán negros
+        pincel.strokeRect(x,y, base, altura); //Los bordes "Seguirán" el contorno del rectángulo
+    }
+    function escribirTexto(x , y, texto) { //Recibirá un texto y la posición (X) y (Y) donde se colocará
+    	var pantalla = document.querySelector("canvas");
+    	var pincel = pantalla.getContext("2d");
+    	pincel.font="15px Georgia";
+    	pincel.fillStyle="black";
+    	pincel.fillText(texto, x, y);    
+    }
+    var serie2009 = [6, 47, 41, 3, 3]; //Los valores númericos que tomaremos para hacer el gráfico
+    var serie2019 = [81, 9, 3, 3, 4]; //Los valores númericos que tomaremos para hacer el gráfico
+    var colores = ["blue","green","yellow", "red","gray"]; //Los valores en String (Colores) que tomaremos para hacer el gráfico
+
+    function dibujarBarra(x, y, serie, colores, texto) {
+    	escribirTexto(x, y - 10, texto);
+    	var sumaAltura = 0;
+    	for (var i = 0; i < serie.length; i++) { //0,1,2
+    		var altura = serie[i];
+    		dibujarRectangulo(x, y + sumaAltura, 50, altura, colores[i]);
+    		sumaAltura = sumaAltura + altura;
+    	}
+    }
+    dibujarBarra(50, 50, serie2009, colores, "2009");
+    dibujarBarra(150, 50, serie2019, colores, "2019");
+</script>

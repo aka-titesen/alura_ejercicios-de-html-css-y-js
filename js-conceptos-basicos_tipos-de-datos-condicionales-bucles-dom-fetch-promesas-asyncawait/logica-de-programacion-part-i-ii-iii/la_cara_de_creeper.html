@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+<canvas width="600" height="400"></canvas>
+<h1>La cara del creeper</h1>
+ingresa acá <a href ="https://developer.mozilla.org/es/docs/Web/API/CanvasRenderingContext2D"> para ver más de la api</a>
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    pincel.fillStyle = "lightgrey";//propiedad o caracteristica
+	pincel.fillRect(0,0,600,400); //función
+	
+    //cabeza
+    pincel.fillStyle = 'darkgreen';
+    pincel.fillRect(200, 50, 350 ,300); //La cabeza está ubicado en el eje "x" 200 y "y" 50 con una proporción de 350 (ancho(x)) y 300 (altura(y)) en el canvas de 600 (ancho(x)) y 400 (altura(y))
+    //ojos
+    pincel.fillStyle = 'black';
+    pincel.fillRect(250, 110, 90, 90);//Ojo izquierdo está ubicado en el eje "x" 250 y "y" 110 con una proporción de 90(ancho(x)) y 90(altura(y)) en el la cabeza 350(ancho(x)) y 300(altura(y)) 
+    pincel.fillRect(410, 110, 90, 90);//Ojo derecho está ubicado en el eje "x" 410 y "y" 110 con una proporción de 90(ancho(x)) y 90(altura(y)) en el la cabeza 350(ancho(x)) y 300(altura(y)) 
+    //nariz
+    pincel.fillRect(340, 200, 70, 100);//La nariz está ubicada justo después del ojo izquierdo; es decir debemos sumar la posición inicial del ojo izquierdo en el eje "x" más su anchura para obtener la posición del eje "x" de la nariz, lo mismo ocurriría con el eje "y" del ojo, la nariz debe comenzar al final del ojo; es decir debemos sumar la posición inicial del ojo izquierdo en el eje "y" más su altura para obtener la posición del eje "y" de la nariz.
+    //boca | consta de 2 partes 
+    pincel.fillRect(300, 240, 40, 110); //1er parte: la posición del eje "x" es la posción inicial de la nariz, menos 40 (340-40), 40 porque tendrá una anchura de 40 y una altura de 110. Está entre el ojo izquierdo y la nariz.
+    pincel.fillRect(410, 240, 40, 110);//2da parte: la posición del eje "y" es la posición fina de la nariz, más 70 (340+70), 70 porque era la anchura de la nariz, por lo tanto como la primera parte, ésta tendrá una anchura de 40 y una altura de 110. Está entre el ojo derecha y la nariz.
+</script>

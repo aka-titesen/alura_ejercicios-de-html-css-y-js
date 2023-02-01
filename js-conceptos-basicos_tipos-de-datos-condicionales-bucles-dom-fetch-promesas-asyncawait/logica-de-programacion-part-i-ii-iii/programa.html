@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+
+<canvas width="600" height="400">
+	
+</canvas>
+
+<script>
+	var pantalla = document.querySelector("canvas");
+	var pincel = pantalla.getContext("2d");
+
+	//Dibuja la pizarra con un tamaño 600 x 400
+	//el primer argumento establece desde donde empieza del eje "x" y el segundo establece desde donde empieza del eje "y"
+	pincel.fillStyle = "lightgrey";//propiedad o caracteristica
+	pincel.fillRect(0,0,600,400); //función
+
+	//Dijuta la parte verde de la bandera desde "x" = 0 y "y" = 0 hasta 200 "x" y 400 "y" de color  
+	pincel.fillStyle = "green";
+	pincel.fillRect(0,0,200,400);
+
+	//Lo mismo con el rojo desde "x" = 400 y "y" = 0 dibujará con una extensión de 200 en "x" y con 400 en "y"  
+	pincel.fillStyle = "red";
+	pincel.fillRect(400,0,200,400);
+
+
+	//Crearemos como una nueva capa con beginPath y nos moveremos al centro de la pizarra con moveTo "x" = 300 y "y" = 200, a partir de allí trazaremos 2 líneas, primera hasta 200 "x" y 400 "y". La segunda línea hasta 400 "x" y 400 "y". con fill llenamos con el color amarillo en el espacio interior entre ambas líneas
+	pincel.fillStyle = "yellow";
+	pincel.beginPath();
+	pincel.moveTo(300,200);
+	pincel.lineTo(200,400);
+	pincel.lineTo(400,400);
+	pincel.fill();
+
+	//Con ésto creamos el semicurculo en el centro de color azul
+	pincel.fillStyle = "blue";
+	pincel.beginPath();
+	pincel.arc(300,200,50,0,2*3.14); //Los primeros argumentos establecen la posición, el tecero el radio y los demás el ángulo
+	pincel.fill();
+</script>
